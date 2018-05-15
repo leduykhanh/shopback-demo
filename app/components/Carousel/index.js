@@ -66,6 +66,7 @@ class Carousel extends Component { // eslint-disable-line react/prefer-stateless
   componentWillUnmount() {
     if (this.list) {
       this.list.removeEventListener('touchmove', this.handleSwipeMove);
+      this.list.removeEventListener('touchend', this.handleSwipeEnd);
     }
   }
 
