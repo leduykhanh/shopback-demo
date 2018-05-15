@@ -17,7 +17,6 @@
 		position: relative;
 		margin: 0;
 		overflow: hidden;
-
 	}
 
 	.slider-wrapper {
@@ -41,21 +40,6 @@
 				}
 			}
 		}
-
-		&.axis-vertical {
-			-ms-box-orient: horizontal;
-			display: -webkit-box;
-			display: -moz-box;
-			display: -ms-flexbox;
-			display: -moz-flex;
-			display: -webkit-flex;
-			display: flex;
-
-			.slider {
-				-webkit-flex-direction: column;
-				flex-direction: column;
-			}
-		}
 	}
 
 	.slider {
@@ -64,10 +48,7 @@
 		position: relative;
 		list-style: none;
 		width: 100%;
-
-
 	}
-
 
 	.slide {
 		min-width: 100%;

@@ -54,9 +54,19 @@ class Carousel extends Component { // eslint-disable-line react/prefer-stateless
   }
 
   componentDidMount() {
-    this.setState({
-      itemSize: this.itemsRef[0].clientWidth,
-    });
+    if (this.list) {
+      this.list.addEventListener('touchmove', this.handleSwipeMove);
+      this.list.addEventListener('touchend', this.handleSwipeEnd);
+      this.setState({
+        itemSize: this.itemsRef[0].clientWidth,
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.list) {
+      this.list.removeEventListener('touchmove', this.handleSwipeMove);
+    }
   }
 
   setItemsRef(node, index) {
@@ -205,7 +215,7 @@ class Carousel extends Component { // eslint-disable-line react/prefer-stateless
   }
 
   setPosition(position) {
-    const list = ReactDOM.findDOMNode(this.listRef);
+    const { list } = this;
     [
       'WebkitTransform',
       'MozTransform',
@@ -242,7 +252,7 @@ class Carousel extends Component { // eslint-disable-line react/prefer-stateless
             onMouseDown={this.onMouseDown}
             onTouchStart={this.handleSwipeStart}
             onTouchEnd={this.handleSwipeEnd}
-            ref={(node) => { this.listRef = node; }}>
+            ref={(node) => { this.list = node; }}>
             { this.renderItems() }
           </ul>
         </div>

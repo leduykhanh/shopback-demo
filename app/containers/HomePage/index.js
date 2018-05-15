@@ -28,9 +28,9 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
     return (
       <h1>
         <div style={{ textAlign: 'center' }}>
-          <div style={{ width: '50%', display: 'inline-block' }}>
+          <div style={{ width: '100%', display: 'inline-block' }}>
           <FormattedMessage {...messages.header} />
-            <Carousel>
+            <Carousel tolerance={100}>
                 <div style={{ ...boxStyle, backgroundColor: 'red' }}>1</div>
                 <div style={{ ...boxStyle, backgroundColor: 'green' }}>2</div>
                 <div style={{ ...boxStyle, backgroundColor: 'yellow' }}>3</div>
